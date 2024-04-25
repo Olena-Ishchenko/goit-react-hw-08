@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
+import css from './LoginForm.module.css';
 
 const LoginForm = () => {
   const FormValidationSchema = Yup.object().shape({
@@ -46,20 +47,19 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
       validationSchema={FormValidationSchema}
     >
-      <Form>
-        <div>
-          <label htmlFor={emailFieldId}>
-            Email
-            <Field type="email" name="email" id={emailFieldId} />
-            <ErrorMessage name="email" as="span" />
-          </label>
-          <label htmlFor={passwordFieldId}>
-            Password
-            <Field type="password" name="password" id={passwordFieldId} />
-            <ErrorMessage name="password" as="span" />
-          </label>
+      <Form className={css.formBox}>
+        <div className={css.inputForm}>
+          <label htmlFor={emailFieldId}>Email </label>
+          <Field type="email" name="email" id={emailFieldId} />
+          <ErrorMessage name="email" as="span" />
+
+          <label htmlFor={passwordFieldId}>Password </label>
+          <Field type="password" name="password" id={passwordFieldId} />
+          <ErrorMessage name="password" as="span" />
         </div>
-        <button type="submit">Log In</button>
+        <button className={css.btn} type="submit">
+          Log In
+        </button>
       </Form>
     </Formik>
   );

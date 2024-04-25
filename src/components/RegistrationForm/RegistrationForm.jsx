@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+import css from './RegistrationForm.module.css';
 
 const RegistrationForm = () => {
   const FormValidationSchema = Yup.object().shape({
@@ -45,25 +46,23 @@ const RegistrationForm = () => {
       onSubmit={handleSubmit}
       validationSchema={FormValidationSchema}
     >
-      <Form>
-        <div>
-          <label htmlFor={nameFieldId}>
-            Username
-            <Field type="name" name="name" id={emailFieldId} />
-            <ErrorMessage name="name" as="span" />
-          </label>
-          <label htmlFor={emailFieldId}>
-            Email
-            <Field type="email" name="email" id={emailFieldId} />
-            <ErrorMessage name="email" as="span" />
-          </label>
-          <label htmlFor={passwordFieldId}>
-            Password
-            <Field type="password" name="password" id={passwordFieldId} />
-            <ErrorMessage name="password" as="span" />
-          </label>
+      <Form className={css.formBox}>
+        <div className={css.inputForm}>
+          <label htmlFor={nameFieldId}>Username </label>
+          <Field type="name" name="name" id={emailFieldId} />
+          <ErrorMessage name="name" as="span" />
+
+          <label htmlFor={emailFieldId}>Email </label>
+          <Field type="email" name="email" id={emailFieldId} />
+          <ErrorMessage name="email" as="span" />
+
+          <label htmlFor={passwordFieldId}>Password </label>
+          <Field type="password" name="password" id={passwordFieldId} />
+          <ErrorMessage name="password" as="span" />
         </div>
-        <button type="submit">Log In</button>
+        <button className={css.btn} type="submit">
+          Log In
+        </button>
       </Form>
     </Formik>
   );

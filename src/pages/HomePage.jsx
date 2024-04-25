@@ -7,7 +7,7 @@ export default function HomePage() {
 
       <div>
         <h1>
-          Contacts welcome page{' '}
+          Welcome to our app{' '}
           <span role="img" aria-label="Greeting icon">
             💁‍♀️
           </span>
